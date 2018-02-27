@@ -31,13 +31,13 @@ describe('Example', () => {
 
   it('should show cat fact on tap 5', async () => {
     await element(by.id('button-tap')).tap()
-    await expect(element(by.id('text-facts'))).toBeNotVisible()
+    await expect(element(by.id('text-fact'))).toBeNotVisible()
     await element(by.id('button-tap')).tap()
-    await expect(element(by.id('text-facts'))).toBeNotVisible()
+    await expect(element(by.id('text-fact'))).toBeNotVisible()
     await element(by.id('button-tap')).tap()
-    await expect(element(by.id('text-facts'))).toBeNotVisible()
+    await expect(element(by.id('text-fact'))).toBeNotVisible()
     await element(by.id('button-tap')).tap()
-    await expect(element(by.id('text-facts'))).toBeNotVisible()
+    await expect(element(by.id('text-fact'))).toBeNotVisible()
     await element(by.id('button-tap')).tap()
     await expect(element(by.id('text-fact'))).toBeVisible()
   })

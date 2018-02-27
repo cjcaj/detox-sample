@@ -8,7 +8,7 @@ let screenshotIndex = 0
 const takeScreenshot = async () => {
   if (!existsSync(SCREENSHOT_DIR)) mkdirSync(SCREENSHOT_DIR)
   const screenshotFilename = `${SCREENSHOT_DIR}/screenshot-${screenshotIndex++}.png`
-  await execSync(`xcrun simctl io booted screenshot ${screenshotFilename}`)
+  execSync(`xcrun simctl io booted screenshot ${screenshotFilename}`)
 }
 
 module.exports = { takeScreenshot }
