@@ -1,14 +1,14 @@
-import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { Button, StyleSheet, Text, View } from 'react-native'
 
 export default class App extends React.Component {
   state = {
-    clicks: 0,
-    fact: null
-  };
+    taps: 0,
+    fact: null,
+  }
 
-  click = () => {
-    this.setState(prevState => ({ clicks: prevState.clicks + 1 }));
+  tap = () => {
+    this.setState(prevState => ({ taps: prevState.taps + 1 }))
   }
 
   getCatFact = () => {
@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.clicks !== this.state.clicks && this.state.clicks % 5 === 0) {
+    if (prevState.taps !== this.state.taps && this.state.taps % 5 === 0) {
       this.getCatFact()
     }
   }
@@ -26,17 +26,15 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title='Click here' onPress={this.click} />
+        <Button title="Click here" onPress={this.tap} testID="button-tap" />
 
-        {this.state.clicks % 2 === 1 && (
-          <Text testID="clicks">{this.state.clicks}</Text>
+        {this.state.taps % 2 === 1 && (
+          <Text testID="text-taps">{this.state.taps}</Text>
         )}
 
-        {this.state.fact && (
-          <Text testID="fact">{this.state.fact}</Text>
-        )}
+        {this.state.fact && <Text testID="text-fact">{this.state.fact}</Text>}
       </View>
-    );
+    )
   }
 }
 
@@ -46,5 +44,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: 20,
   },
-});
+})
