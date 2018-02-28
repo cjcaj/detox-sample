@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, Button, StyleSheet, Text, View } from 'react-native'
 
 export default class App extends React.Component {
   state = {
     taps: 0,
     fact: null,
+    factLoading: false,
   }
 
   tap = () => {
@@ -12,9 +13,10 @@ export default class App extends React.Component {
   }
 
   getCatFact = () => {
+    this.setState({ factLoading: true })
     fetch('https://catfact.ninja/fact')
       .then(response => response.json())
-      .then(responseJson => this.setState({ fact: responseJson.fact }))
+      .then(responseJson => this.setState({ fact: responseJson.fact, factLoading: false }))
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -33,6 +35,7 @@ export default class App extends React.Component {
         )}
 
         {this.state.fact && <Text testID="text-fact">{this.state.fact}</Text>}
+        {this.state.factLoading && <ActivityIndicator />}
       </View>
     )
   }

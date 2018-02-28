@@ -7,7 +7,7 @@ describe('Example', () => {
   })
 
   afterEach(async () => {
-    await takeScreenshot()
+    takeScreenshot()
   })
 
   it('should only show button', async () => {
@@ -19,12 +19,12 @@ describe('Example', () => {
   it('should show tap 1 and tap 3', async () => {
     await element(by.id('button-tap')).tap()
     await expect(element(by.id('text-taps'))).toBeVisible()
-    await takeScreenshot()
+    takeScreenshot()
     await element(by.id('button-tap')).tap()
     await expect(element(by.id('text-taps'))).toBeNotVisible()
     await element(by.id('button-tap')).tap()
     await expect(element(by.id('text-taps'))).toBeVisible()
-    await takeScreenshot()
+    takeScreenshot()
     await element(by.id('button-tap')).tap()
     await expect(element(by.id('text-taps'))).toBeNotVisible()
   })
