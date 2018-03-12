@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "detox": "^7.2.0",
+    "detox-expo-helpers": "^0.2.0",
     "jest-expo": "25.0.0",
     "mocha": "^5.0.4",
     "react-native-scripts": "1.11.1",
